@@ -1,0 +1,18 @@
+# run command 
+python app/main.py 
+make sure you're in project directory 
+
+save credentials from google by the name client_secret.json and 
+place it in credentials folder
+
+you've to create credentials folder refer below project structure
+
+project
+|
+|__app
+|   |
+|   |__main.py
+|
+|__credentials
+|   |
+|   |__client_secret.json
