@@ -1,0 +1,5 @@
+*.json
+*.pdf
+*.htm
+downloaded_files/
+credentials
