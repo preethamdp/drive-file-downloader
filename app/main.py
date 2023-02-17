@@ -4,8 +4,6 @@ from oauth2client import client, file, tools
 from apiclient.http import MediaIoBaseDownload, MediaFileUpload
 import os
 from dotenv import load_dotenv
-import io
-import shutil
 
 load_dotenv() 
 
@@ -63,22 +61,23 @@ def retrieve_all_files(api_service,folder):
 
     return results
 
-
+import io
+import shutil
 def file_download(service, file_id, file_name):
     request = service.files().get_media(fileId=file_id)
     fh = io.BytesIO()
-
+        
     # Initialise a downloader object to download the file
     downloader = MediaIoBaseDownload(fh, request, chunksize=204800)
     done = False
-  
+
     try:
         # Download the data in chunks
         while not done:
             status, done = downloader.next_chunk()
 
         fh.seek(0)
-
+            
         # Write the received data to the file
         with open(os.path.join(OUTPUT_DIR,file_name), 'wb') as f:
             shutil.copyfileobj(fh, f)
@@ -87,7 +86,7 @@ def file_download(service, file_id, file_name):
         # Return True if file Downloaded successfully
         return True
     except:
-
+        
         # Return False if something went wrong
         print("Something went wrong.")
         return False
