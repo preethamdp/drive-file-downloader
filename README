@@ -2,6 +2,8 @@
 python app/main.py 
 make sure you're in project directory 
 
+Place you're ID of the folder which need to checked for files in .env file
+
 save credentials from google by the name client_secret.json and 
 place it in credentials folder
 
